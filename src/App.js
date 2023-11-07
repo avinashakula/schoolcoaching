@@ -1,10 +1,6 @@
 import './App.css';
-import Button from './components/general/Button';
-import Heading from './components/general/Heading';
-import InputText from './components/general/InputText';
-import Login from './components/login/login';
 import React from 'react';
-
+import Navigation from './components/navigation';
 function App() {
   const [inputText, setInputText] = React.useState("");
   const changeHandler = (e) => {
@@ -12,7 +8,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Login />      
+      <Navigation />           
     </div>
   );
 }
