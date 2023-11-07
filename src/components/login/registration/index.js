@@ -1,6 +1,8 @@
 import React from 'react'
 import Heading from '../../general/Heading'
 import BlockedInputText from '../../general/BlockedInputText'
+import {useSelector,useDispatch} from 'react-redux'
+import { setCount } from '../store/Registration';
 import { Button } from 'react-bootstrap';
 export default function Register() {
     const [user, setUser] = React.useState({
