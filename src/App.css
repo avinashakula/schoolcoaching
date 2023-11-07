@@ -1,0 +1,9 @@
+.formWrapper{
+    padding: 1em;
+    width:fit-content;
+    border: 1px solid silver;
+    margin-top: 1em !important;
+}
+.centeredWrapper{
+    margin: 0 auto;
+}

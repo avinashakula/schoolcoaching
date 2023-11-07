@@ -1,0 +1,8 @@
+.defaultInput{
+    color:black;
+    padding:5px;    
+    border:1px solid silver;    
+}
+.blockedWrapper{
+    margin-bottom: 10px;
+}
