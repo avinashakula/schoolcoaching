@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import welcomeReducer from "./slices/Registration";
+import registerReducer from "./slices/Registration";
 export const store = configureStore({
     reducer:{
-        welcome:welcomeReducer
+        register:registerReducer
     }
 })

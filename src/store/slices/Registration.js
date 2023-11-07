@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const RegistrationSlice = createSlice({
-    name:"welcome",
+    name:"register",
     initialState: {
         email:"",
         password:"",
