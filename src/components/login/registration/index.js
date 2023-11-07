@@ -2,9 +2,10 @@ import React from 'react'
 import Heading from '../../general/Heading'
 import BlockedInputText from '../../general/BlockedInputText'
 import {useSelector,useDispatch} from 'react-redux'
-import { setCount } from '../../../store/slices/Registration';
+import { setCount, newUser } from '../../../store/slices/Registration';
 import { Button } from 'react-bootstrap';
 export default function Register() {
+    const dispatch = useDispatch();
     const [user, setUser] = React.useState({
         email:"",
         password:"",
@@ -17,7 +18,7 @@ export default function Register() {
         setUser({...user, [e.target.name]:e.target.value})
     }
     const clickHandler = () => {
-        console.log("User", user);
+        dispatch(newUser(user))
     }
   return (
     <div className='centeredWrapper formWrapper'>
