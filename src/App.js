@@ -11,7 +11,7 @@ function App() {
     setInputText(e.target.value)
   }
   return (
-    <div className="App">
+    <div className="App">      
       <Navigation />           
     </div>
   );
