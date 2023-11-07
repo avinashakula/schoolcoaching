@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const RegistrationSlice = createSlice({
     name:"register",
     initialState: {
-        users:[]
+        users:[],
+        loading:false
     },
     reducers:{
         setCount(state, action){
@@ -13,6 +14,7 @@ export const RegistrationSlice = createSlice({
             let existingUsers = [...state.users];
             existingUsers.push(action.payload);
             state.users = existingUsers;
+            state.loading = false;
         },
         removeUser(state, action){
             let existingUsers = [...state.users];
@@ -20,9 +22,14 @@ export const RegistrationSlice = createSlice({
                 return action.payload != id
             });
             state.users = updatedUsers;
-        }
+            state.loading = false; 
+        },
+        updating(state){
+            state.loading = true;
+        },
+        
     }
 })
 
-export const {setCount, newUser, removeUser} = RegistrationSlice.actions;
+export const {setCount, newUser, removeUser, updating} = RegistrationSlice.actions;
 export default RegistrationSlice.reducer;
