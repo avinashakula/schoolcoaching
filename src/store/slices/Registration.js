@@ -3,7 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const RegistrationSlice = createSlice({
     name:"welcome",
     initialState: {
-        count: 10
+        email:"",
+        password:"",
+        name:"",
+        mobile:"",
+        school:"",
+        grade:""
     },
     reducers:{
         setCount(state, action){
