@@ -2,6 +2,7 @@ import './App.css';
 import Button from './components/general/Button';
 import Heading from './components/general/Heading';
 import InputText from './components/general/InputText';
+import Login from './components/login/login';
 import React from 'react';
 
 function App() {
@@ -11,9 +12,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Heading title={"School Coaching"} />
-      <Button title={"Click Me"} />
-      <InputText value={inputText} changeHandler={changeHandler} placeholder={"Enter String"} />
+      <Login />      
     </div>
   );
 }
