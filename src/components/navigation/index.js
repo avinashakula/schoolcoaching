@@ -28,10 +28,10 @@ export default function Navigation() {
         </Navbar>    
         <Routes>
             <Route path='/' element={<Login />} />
-            <Route path='/students' element={<Students />} />
-            <Route path='/faculty' element={<Faculty />} />
-            <Route path='/classes' element={<Classes />} />
-            <Route path='/register' element={<Register />} />
+            <Route path={`/${DEFAULT.students}`} element={<Students />} />
+            <Route path={`/${DEFAULT.faculty}`} element={<Faculty />} />
+            <Route path={`/${DEFAULT.classes}`} element={<Classes />} />
+            <Route path={`/${DEFAULT.register}`} element={<Register />} />
             <Route path='*' element={<NotFound />} />
         </Routes>        
     </div>
