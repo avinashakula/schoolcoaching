@@ -1,24 +1,32 @@
 import React from 'react'
+import Student from './student';
 
 const StudentsList = React.memo((props) => {
-    const {users, onRemove} = props;
+    const {users, onRemove, loading} = props;
     console.log("Students List Rendered");
+    
   return (
     <table border={1} width={600}>
-      {
-        users && users.length && users.map((user, index)=>(
-          <tr>
-            <td>{index}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.grade}</td>
-            <td>{user.school}</td>
-            <td>{user.mobile}</td>
-            <td>{user.password}</td>
-            <td><button onClick={()=>{onRemove(index)}}>Remove</button></td>
-          </tr>
-        ))
-      }
+        <thead>
+            <tr>
+                <td>S.No</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Grade</td>
+                <td>School</td>
+                <td>Mobile</td>
+                <td>Password</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                loading ? <tr><td>Loading..</td></tr> :
+                users.map((user, i)=>(
+                    <Student key={i} user={user} i={i} onRemove={onRemove} />
+                ))
+            }
+        </tbody>
       </table>
   )
 })
