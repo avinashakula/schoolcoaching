@@ -1,22 +1,23 @@
 import React from 'react'
 import Student from './student';
+import Table from 'react-bootstrap/Table';
 
 const StudentsList = React.memo((props) => {
     const {users, onRemove, loading} = props;
     console.log("Students List Rendered");
     
   return (
-    <table border={1} width={600}>
+    <Table responsive="sm" striped bordered hover size='sm'>
         <thead>
             <tr>
-                <td>S.No</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Grade</td>
-                <td>School</td>
-                <td>Mobile</td>
-                <td>Password</td>
-                <td>Actions</td>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Grade</th>
+                <th>School</th>
+                <th>Mobile</th>
+                <th>Password</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +28,7 @@ const StudentsList = React.memo((props) => {
                 ))
             }
         </tbody>
-      </table>
+      </Table>
   )
 })
 export default StudentsList;
