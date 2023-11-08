@@ -6,3 +6,8 @@
 .blockedWrapper{
     margin-bottom: 10px;
 }
+.inputHint{
+    margin-bottom: 15px;
+    display: block;
+    color: rgb(245, 32, 32);
+}
