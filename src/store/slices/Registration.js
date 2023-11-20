@@ -23,6 +23,8 @@ export const newUserAsync = createAsyncThunk('register/newUserAsync', async (use
     // }
 
 
+    
+
     // For Login
     // const token = localStorage.getItem('jwtToken');   
     // const response = await fetch('http://desireitservices.in/schoolcoaching/server/login.php', {
@@ -43,6 +45,9 @@ export const newUserAsync = createAsyncThunk('register/newUserAsync', async (use
     // } else {
     //     console.error('Login failed');
     // }
+
+
+
 
     // For Logout
     // localStorage.removeItem('jwtToken');
