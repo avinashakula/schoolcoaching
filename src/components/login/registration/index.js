@@ -1,13 +1,14 @@
 import React from 'react'
 import Heading from '../../general/Heading'
 import BlockedInputText from '../../general/BlockedInputText'
-import {useDispatch} from 'react-redux'
-import { newUser } from '../../../store/slices/Registration';
+import {useDispatch, useSelector} from 'react-redux'
+import { newUser, newUserAsync } from '../../../store/slices/Registration';
 import { Button } from 'react-bootstrap';
 import FormContainer from '../../general/FormContainer';
 import Form from "react-bootstrap/Form"
 export default function Register() {
     const dispatch = useDispatch();
+    const {msg} = useSelector((store)=>store.register);
     const [formSubmitted, setFormSubmitted] = React.useState(false);
     const [user, setUser] = React.useState({
         email:"",
@@ -24,7 +25,7 @@ export default function Register() {
         mobile:false,
         school:true,
         grade:false
-    });
+    });    
     const validateInput = (config) => {
         // required/mandatory checking...
         if( config.inputRequired ){
@@ -57,12 +58,17 @@ export default function Register() {
         setFormSubmitted(true);
         let allTrue = true;
         for( let error in errorLists ){
-            if( errorLists[error] == false ){
+            if( errorLists[error] === false ){
                 allTrue = false;
             }
         }
-        console.log(allTrue);
-        allTrue && dispatch(newUser(user))
+        // allTrue && dispatch(newUser(user))
+        allTrue && dispatch(newUserAsync(user)).then((result)=>{
+            result.payload.status && dispatch(newUser(user))
+        }).catch((error)=>{
+            console.log("Error", error);
+        })
+
     }
   return (
     <FormContainer>
@@ -76,6 +82,7 @@ export default function Register() {
             <BlockedInputText formSubmitted={formSubmitted} errors={errorLists} required min={1} name={"grade"} value={user.grade} placeholder={"Grade"} changeHandler={changeHandler} />
             <Button className='mt-3' variant='success' size='sm' onClick={clickHandler}>Submit</Button>
         </Form>
+        {msg}
     </FormContainer>
   )
 }
