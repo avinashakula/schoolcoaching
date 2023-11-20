@@ -16,10 +16,11 @@ export const newUserAsync = createAsyncThunk('register/newUserAsync', async (use
         const data = await response.json();       
         return data;
     }catch(error){
-        // dispatch(newUserFailed(error.message));
         throw error;
     }
 });
+
+
 
 export const RegistrationSlice = createSlice({
     name:"register",
